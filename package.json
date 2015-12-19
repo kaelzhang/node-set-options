@@ -22,7 +22,7 @@
     "url": "https://github.com/kaelzhang/node-set-options/issues"
   },
   "devDependencies": {
-    "mocha": "*",
-    "chai": "*"
+    "chai": "*",
+    "mocha": "*"
   }
 }
