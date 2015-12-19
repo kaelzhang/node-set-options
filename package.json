@@ -1,0 +1,28 @@
+{
+  "name": "set-options",
+  "version": "1.0.0",
+  "description": "set-options",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec ./test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kaelzhang/node-set-options.git"
+  },
+  "keywords": [
+    "set-options"
+  ],
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "author": "kaelzhang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kaelzhang/node-set-options/issues"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "chai": "*"
+  }
+}
