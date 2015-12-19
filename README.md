@@ -11,7 +11,7 @@
 
 # set-options
 
-<!-- description -->
+Merges default options to the user-given options.
 
 ## Install
 
@@ -19,11 +19,46 @@
 $ npm install set-options --save
 ```
 
-## Usage
+## set(options, defaults)
+
+Always returns an object, 
 
 ```js
-var set_options = require('set-options');
+var set = require('set-options')
+var defaults = {
+  a: 1
+}
+
+function factory (options) {
+  var config = set(options, defaults)
+  // `options` and `defaults` will not be ruined after `set()` 
+  console.log(config, config === options, config === defaults)
+}
+
+factory()
+// {a: 1} false false 
+
+factory(undefined)
+// {a: 1} false false
+
+factory(null)
+// {a: 1} false false
+
+factory(1)
+// {a: 1} false false
+
+factory({})
+// {a: 1} false false
+
+factory({b: 1})
+// {a: 1, b: 1} false false
+
+factory({a: 0})
+// {a: 0} false false
 ```
+
+- options `Object=` can be undefined.
+- defaults `Object` not defining `defaults` is silly, since that's the whole purpose of this lib.
 
 ## License
 
