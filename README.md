@@ -60,7 +60,7 @@ factory({a: 0})
 - options `Object=` can be undefined.
 - defaults `Object` not defining `defaults` is silly, since that's the whole purpose of this lib.
 
-### Define whether should override properties
+#### Define whether should override properties
 
 ```js
 set(options, defaults, filter)
@@ -72,6 +72,16 @@ var options = set({a: undefined}, {a: 1}, function (value, key, object) {
 })
 
 options  // {a: undefined}
+```
+
+#### Deep merge? Nope
+
+Do something below instead.
+
+```js
+options = set(options, defaults)
+options.config = set(options.config, default_config)
+```
 
 ## License
 
