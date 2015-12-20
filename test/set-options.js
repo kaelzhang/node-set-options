@@ -43,9 +43,9 @@ describe("set(options, defaults)", function(){
     var description = JSON.stringify(options) + ', ' + JSON.stringify(defaults)
     it(description, function(done){
       var config = set(options, defaults)
-      expect(config).to.deep.equal(exp);
-      expect(config).not.to.equal(options);
-      expect(config).not.to.equal(defaults);
+      expect(config).to.deep.equal(exp)
+      expect(config).not.to.equal(options)
+      expect(config).not.to.equal(defaults)
       done()
     })
   })
@@ -58,7 +58,17 @@ describe("set(options, defaults, filter)", function(){
       return v || v === 0
     });
 
-    expect(config).to.deep.equal({a: 0});
+    expect(config).to.deep.equal({a: 0})
     done()
   });
+
+  it("test if exists", function(done){
+    var config = set({a: undefined}, {a: 1}, function (v, k, o) {
+      return k in o
+    });
+
+    expect(config).to.deep.equal({a: undefined})
+    expect('a' in config).to.equal(true)
+    done()
+  })
 });

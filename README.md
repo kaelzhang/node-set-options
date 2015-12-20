@@ -60,6 +60,19 @@ factory({a: 0})
 - options `Object=` can be undefined.
 - defaults `Object` not defining `defaults` is silly, since that's the whole purpose of this lib.
 
+### Define whether should override properties
+
+```js
+set(options, defaults, filter)
+```
+
+```js
+var options = set({a: undefined}, {a: 1}, function (value, key, object) {
+  return key in object
+})
+
+options  // {a: undefined}
+
 ## License
 
 MIT
