@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "chai": "*",
+    "clone": "^1.0.2",
     "mocha": "*"
   }
 }

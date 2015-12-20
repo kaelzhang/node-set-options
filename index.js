@@ -2,10 +2,10 @@
 
 module.exports = set
 
-function set (options, defaults) {
+function set (options, defaults, filter) {
   var ret = {}
   var is_options_object = Object(options) === options
-  var is_defaults_object = Object(options) === defaults
+  var is_defaults_object = Object(defaults) === defaults
 
   if (!is_options_object && !is_defaults_object) {
     return ret
@@ -19,7 +19,8 @@ function set (options, defaults) {
     return mix(ret, options)
   }
 
-  return mix_non_exists(mix(ret, options), defaults)
+  mix(ret, options)
+  return mix_if_not_true(ret, defaults, filter)
 }
 
 
@@ -28,14 +29,20 @@ function mix (a, b) {
   for (key in b) {
     a[key] = b[key]
   }
+
+  return a
 }
 
 
-function mix_non_exists (a, b) {
+function mix_if_not_true (a, b, filter) {
+  filter = filter || Boolean
+
   var key
   for (key in b) {
-    if ( !(key in a) ) {
-      host[key] = b[key]
+    if (!filter(a[key], key, a)) {
+      a[key] = b[key]
     }
   }
+
+  return a
 }
