@@ -1,6 +1,6 @@
 {
   "name": "set-options",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Merges default options to the user-given options.",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,9 @@
     "url": "git://github.com/kaelzhang/node-set-options.git"
   },
   "keywords": [
-    "set-options"
+    "set-options",
+    "options",
+    "merge"
   ],
   "engines": {
     "node": ">=0.10.0"
