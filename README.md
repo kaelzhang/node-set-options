@@ -21,7 +21,7 @@ $ npm install set-options --save
 
 ## set(options, defaults)
 
-Always returns an object, 
+Always returns an object. For a key `k`, if `options` does not have `k` as an own property, and `defaults` does, `defaults[k]` will copied to `options`.
 
 ```js
 var set = require('set-options')
@@ -31,12 +31,12 @@ var defaults = {
 
 function factory (options) {
   var config = set(options, defaults)
-  // `options` and `defaults` will not be ruined after `set()` 
+  // `options` and `defaults` will not be ruined after `set()`
   console.log(config, config === options, config === defaults)
 }
 
 factory()
-// {a: 1} false false 
+// {a: 1} false false
 
 factory(undefined)
 // {a: 1} false false
@@ -67,7 +67,7 @@ set(options, defaults, filter)
 ```
 
 ```js
-var options = set({a: undefined}, {a: 1}, function (value, key, object) {
+let options = set({a: undefined}, {a: 1}, function (value, key, object) {
   return key in object
 })
 

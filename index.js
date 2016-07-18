@@ -20,7 +20,7 @@ function set (options, defaults, filter) {
   }
 
   mix(ret, options)
-  return mix_if_not_true(ret, defaults, filter)
+  return mix_if_not_has(ret, defaults, filter)
 }
 
 
@@ -34,8 +34,13 @@ function mix (a, b) {
 }
 
 
-function mix_if_not_true (a, b, filter) {
-  filter = filter || Boolean
+function default_filter (v, k, a) {
+  return a.hasOwnProperty(k)
+}
+
+
+function mix_if_not_has (a, b, filter) {
+  filter = filter || default_filter
 
   var key
   for (key in b) {
