@@ -54,7 +54,7 @@ factory({b: 1})
 // {a: 1, b: 1} false false
 
 factory({a: 0})
-// {a: 1} false false
+// {a: 0} false false
 ```
 
 - options `Object=` can be undefined.
